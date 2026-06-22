@@ -1,5 +1,4 @@
 <?php
-
 if (file_exists(__DIR__ . '/.env')) {
     $lines = file(__DIR__ . '/.env', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
     foreach ($lines as $line) {
@@ -10,5 +9,5 @@ if (file_exists(__DIR__ . '/.env')) {
     }
 }
 
-$token = $_ENV['API_TOKEN'] ?? '';
-$apiUrl = ($_ENV['API_URL'] ?? '');
+$token = $_ENV['API_TOKEN'] ?? getenv('API_TOKEN') ?: '';
+$apiUrl = $_ENV['API_URL'] ?? getenv('API_URL') ?: '';
